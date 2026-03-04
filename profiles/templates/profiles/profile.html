@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ profile.user.username }}{% endblock %}
+{% block content %}
+<h1>{{ profile.user.username }}</h1>
+<p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+<p>{{ profile.user.email }}</p>
+<p>{{ profile.favorite_city }}</p>
+<a href="{% url 'profiles:index' %}">Back</a>
+{% endblock %}
