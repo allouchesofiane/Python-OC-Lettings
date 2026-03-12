@@ -1,3 +1,4 @@
+"""Module contenant les URLs de l'application profiles."""
 from django.urls import path
 from . import views
 

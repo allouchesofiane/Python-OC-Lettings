@@ -1,3 +1,4 @@
+"""Module contenant les vues de l'application lettings."""
 from django.shortcuts import render
 from .models import Letting
 

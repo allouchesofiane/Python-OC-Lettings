@@ -1,3 +1,4 @@
+"""Module contenant les URLs principales de l'application oc_lettings_site."""
 from django.contrib import admin
 from django.urls import path, include
 from . import views

@@ -1,4 +1,4 @@
-
+"""Module contenant les modèles de l'application lettings."""
 from django.db import models
 from django.core.validators import MaxValueValidator, MinLengthValidator
 
@@ -17,6 +17,7 @@ class Address(models.Model):
         verbose_name_plural = 'Addresses'
 
     def __str__(self):
+        """Retourne une représentation lisible de l'adresse."""
         return f'{self.number} {self.street}'
 
 
@@ -27,4 +28,5 @@ class Letting(models.Model):
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
     def __str__(self):
+        """Retourne le titre de la location."""
         return self.title

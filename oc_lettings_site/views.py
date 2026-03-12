@@ -1,4 +1,4 @@
-
+"""Module contenant les vues principales de l'application oc_lettings_site."""
 from django.shortcuts import render
 
 
@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-def page_not_found(request):
+def page_not_found(request, exception):
     """Vue affichant la page d'erreur 404 - page non trouvée."""
     return render(request, '404.html', status=404)
 

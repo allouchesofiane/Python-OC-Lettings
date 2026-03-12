@@ -1,5 +1,5 @@
+"""Module contenant les vues de l'application profiles."""
 from django.shortcuts import render
-
 from .models import Profile
 
 
