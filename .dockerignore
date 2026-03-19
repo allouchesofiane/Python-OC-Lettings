@@ -7,4 +7,3 @@ __pycache__/
 .gitignore
 htmlcov/
 .pytest_cache/
-*.sqlite3

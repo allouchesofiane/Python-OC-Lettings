@@ -1,4 +1,4 @@
-# Image de base Python
+dockerfile# Image de base Python
 FROM python:3.13-slim
 
 # Définir le répertoire de travail
@@ -19,5 +19,5 @@ RUN python manage.py collectstatic --noinput
 # Exposer le port
 EXPOSE 8000
 
-# Lancer le serveur
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Lancer les migrations et le serveur
+CMD python manage.py migrate && python manage.py runserver 0.0.0.0:8000
