@@ -5,6 +5,7 @@ from .models import Profile
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):
     """Vue affichant la liste de tous les profils."""
     logger.info('Affichage de la liste des profils')

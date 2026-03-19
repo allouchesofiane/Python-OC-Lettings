@@ -5,6 +5,7 @@ from .models import Letting
 
 logger = logging.getLogger(__name__)
 
+
 def index(request):
     """Vue affichant la liste de toutes les locations."""
     logger.info('Affichage de la liste des locations')
