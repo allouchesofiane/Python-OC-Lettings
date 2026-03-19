@@ -1,4 +1,3 @@
-dockerfile# Image de base Python
 FROM python:3.13-slim
 
 # Définir le répertoire de travail
