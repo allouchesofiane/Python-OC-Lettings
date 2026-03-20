@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Déploiement et gestion de l’application &mdash; Documentation OC Lettings 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7a28dfa3"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=e6b791cb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="prev" title="Guide d’utilisation" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OC Lettings
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Rechercher docs" aria-label="Rechercher docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">Description du projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Guide de démarrage rapide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">Technologies et langages de programmation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Base de données et modèles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">Interfaces de programmation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Guide d’utilisation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Déploiement et gestion de l’application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#variables-d-environnement">Variables d’environnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurer-sentry">Configurer Sentry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pipeline-ci-cd">Pipeline CI/CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploiement-manuel">Déploiement manuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lancer-le-site-avec-docker">Lancer le site avec Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rollback">Rollback</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OC Lettings</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Déploiement et gestion de l’application</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/deployment.rst.txt" rel="nofollow"> Afficher la source de la page</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deploiement-et-gestion-de-l-application">
+<h1>Déploiement et gestion de l’application<a class="headerlink" href="#deploiement-et-gestion-de-l-application" title="Lien vers cette rubrique"></a></h1>
+<p>Cette section décrit comment déployer et gérer l’application en production.</p>
+<section id="variables-d-environnement">
+<h2>Variables d’environnement<a class="headerlink" href="#variables-d-environnement" title="Lien vers cette rubrique"></a></h2>
+<p>Les variables suivantes sont nécessaires pour faire fonctionner l’application :</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Exemple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SECRET_KEY</span></code></p></td>
+<td><p>Clé secrète Django</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fp$9^593hsriajg...</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DEBUG</span></code></p></td>
+<td><p>Mode debug</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code> en production</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ALLOWED_HOSTS</span></code></p></td>
+<td><p>Domaines autorisés</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python-oc-lettings-l2ou.onrender.com</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SENTRY_DSN</span></code></p></td>
+<td><p>DSN Sentry pour la surveillance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://xxx&#64;xxx.ingest.sentry.io/xxx</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configurer-sentry">
+<h2>Configurer Sentry<a class="headerlink" href="#configurer-sentry" title="Lien vers cette rubrique"></a></h2>
+<ol class="arabic simple">
+<li><p>Créer un compte sur <strong>https://sentry.io</strong></p></li>
+<li><p>Créer un nouveau projet Django</p></li>
+<li><p>Récupérer le DSN du projet</p></li>
+<li><p>Ajouter le DSN dans le fichier <code class="docutils literal notranslate"><span class="pre">.env</span></code> en local :</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">SENTRY_DSN</span><span class="o">=</span>https://xxx@xxx.ingest.sentry.io/xxx
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Ajouter le DSN dans les secrets GitHub Actions :</p>
+<ul class="simple">
+<li><p>Aller sur GitHub → Settings → Secrets → Actions</p></li>
+<li><p>Ajouter <code class="docutils literal notranslate"><span class="pre">SENTRY_DSN</span></code> avec la valeur du DSN</p></li>
+</ul>
+</li>
+<li><p>Ajouter le DSN dans les variables d’environnement Render :</p>
+<ul class="simple">
+<li><p>Aller sur Render → ton service → Environment</p></li>
+<li><p>Ajouter <code class="docutils literal notranslate"><span class="pre">SENTRY_DSN</span></code> avec la valeur du DSN</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="pipeline-ci-cd">
+<h2>Pipeline CI/CD<a class="headerlink" href="#pipeline-ci-cd" title="Lien vers cette rubrique"></a></h2>
+<p>Le pipeline CI/CD est configuré avec GitHub Actions.
+Il est composé de 3 jobs :</p>
+<ol class="arabic simple">
+<li><p><strong>Tests et Linting</strong> : se déclenche sur toutes les branches</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8
+pytest<span class="w"> </span>--cov<span class="o">=</span>.<span class="w"> </span>--cov-fail-under<span class="o">=</span><span class="m">80</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Build et Push Docker</strong> : se déclenche uniquement sur master</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build
+docker<span class="w"> </span>push<span class="w"> </span>sofianeall/oc-lettings:latest
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Déploiement sur Render</strong> : se déclenche uniquement sur master</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="nv">$RENDER_DEPLOY_HOOK</span>
+</pre></div>
+</div>
+</section>
+<section id="deploiement-manuel">
+<h2>Déploiement manuel<a class="headerlink" href="#deploiement-manuel" title="Lien vers cette rubrique"></a></h2>
+<p>Pour déclencher un déploiement manuellement :</p>
+<ol class="arabic simple">
+<li><p>Aller sur <strong>https://render.com</strong></p></li>
+<li><p>Cliquer sur ton service <code class="docutils literal notranslate"><span class="pre">Python-OC-Lettings</span></code></p></li>
+<li><p>Cliquer sur <strong>Manual Deploy</strong></p></li>
+<li><p>Cliquer sur <strong>Deploy latest commit</strong></p></li>
+</ol>
+</section>
+<section id="lancer-le-site-avec-docker">
+<h2>Lancer le site avec Docker<a class="headerlink" href="#lancer-le-site-avec-docker" title="Lien vers cette rubrique"></a></h2>
+<p>Récupérer et lancer l’image en une seule commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up
+</pre></div>
+</div>
+<p>Le site est accessible sur <strong>http://localhost:8000</strong></p>
+<p>Ou avec la commande complète :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;ta_clé_secrète&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">DEBUG</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">ALLOWED_HOSTS</span><span class="o">=</span><span class="s2">&quot;localhost,127.0.0.1&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">SENTRY_DSN</span><span class="o">=</span><span class="s2">&quot;ton_dsn_sentry&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sofianeall/oc-lettings:latest
+</pre></div>
+</div>
+</section>
+<section id="rollback">
+<h2>Rollback<a class="headerlink" href="#rollback" title="Lien vers cette rubrique"></a></h2>
+<p>Pour revenir à une version précédente :</p>
+<ol class="arabic simple">
+<li><p>Aller sur <strong>https://render.com</strong></p></li>
+<li><p>Cliquer sur ton service</p></li>
+<li><p>Aller dans <strong>Events</strong></p></li>
+<li><p>Cliquer sur <strong>Rollback</strong> sur la version souhaitée</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Guide d’utilisation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Droits d'auteur 2026, Sofiane ALLOUCHE.</p>
+  </div>
+
+  Compilé avec <a href="https://www.sphinx-doc.org/">Sphinx</a> en utilisant un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a>
+    fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: sofianeall/oc-lettings:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s
+      - DEBUG=True
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - SENTRY_DSN=

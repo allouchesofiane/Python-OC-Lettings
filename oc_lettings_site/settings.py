@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'python-oc-lettings-l2ou.onrender.com
 # Sentry configuration
 sentry_sdk.init(
     dsn=os.getenv('SENTRY_DSN'),
+    # On enregistre 100% des erreurs
     traces_sample_rate=1.0,
 )
 
