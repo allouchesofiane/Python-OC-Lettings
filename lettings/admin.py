@@ -1,4 +1,7 @@
-"""Module contenant la configuration de l'administration pour l'application lettings."""
+"""
+Module contenant la configuration de
+l'administration pour l'application lettings.
+"""
 from django.contrib import admin
 from .models import Address, Letting
 

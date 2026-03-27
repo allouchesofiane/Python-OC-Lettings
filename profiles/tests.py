@@ -59,7 +59,10 @@ def test_index_utilise_bon_template(mon_client):
 @pytest.mark.django_db
 def test_profile_url(un_profil):
     """Test que l'URL du détail d'un profil est correcte."""
-    url = reverse('profiles:profile', kwargs={'username': un_profil.user.username})
+    url = reverse(
+        'profiles:profile',
+        kwargs={'username': un_profil.user.username}
+        )
     assert url == f'/profiles/{un_profil.user.username}/'
 
 
